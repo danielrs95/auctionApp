@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2021_03_20_213445) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.text "photo"
+    t.text "image"
     t.decimal "price"
     t.datetime "auctionDate"
     t.datetime "startingDate"

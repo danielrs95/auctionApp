@@ -1,1 +1,22 @@
-<h1>Hola Mundo</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Auction date</th>
+    <th>Starting date</th>
+    <th>Ending date</th>
+  </tr>
+  <% @products.each do |product| %>
+  <tr>
+    <td><%= product.name %></td>
+    <td><%= product.description %></td>
+    <td><%= product.image %></td>
+    <td><%= product.price %></td>
+    <td><%= product.auctionDate %></td>
+    <td><%= product.startingDate %></td>
+    <td><%= product.endingDate %></td>
+  </tr>
+  <% end %>
+</table>
