@@ -29,7 +29,7 @@
           <td><%= product.startingDate %></td>
           <td><%= product.endingDate %></td>
           <th><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_product_path(product) %></th>
-          <th><%= link_to '<i class="fas fa-trash"></i>'.html_safe, edit_product_path(product) %></th>
+          <th><%= link_to '<i class="fas fa-trash"></i>'.html_safe, product, method: :delete, data: {confirm: "Delete product?"} %></th>
 
         </tr>
         <% end %>
