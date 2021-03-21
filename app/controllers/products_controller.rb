@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def details
+  def show
     @product = Product.find(params[:id])
   end
 
