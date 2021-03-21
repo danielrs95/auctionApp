@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   post '/products' => 'products#create'
 
   get '/products/:id' => 'products#details', as: 'product'
-  get '/products/:id/edit' => 'products#edit'
+  get '/products/:id/edit' => 'products#edit', as: 'edit_product'
+  patch '/products/:id' => 'products#update'
 end

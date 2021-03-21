@@ -16,16 +16,21 @@
           <th>Auction date</th>
           <th>Starting date</th>
           <th>Ending date</th>
+          <th></th>
+          <th></th>
         </tr>
         <% @products.each do |product| %>
         <tr>
-          <td><%= product.name %></td>
+          <td><%= link_to product.name, product %></td>
           <td><%= product.description %></td>
           <td><%= product.image %></td>
           <td><%= product.price %></td>
           <td><%= product.auctionDate %></td>
           <td><%= product.startingDate %></td>
           <td><%= product.endingDate %></td>
+          <th><%= link_to '<i class="fas fa-edit"></i>'.html_safe, edit_product_path(product) %></th>
+          <th><%= link_to '<i class="fas fa-trash"></i>'.html_safe, edit_product_path(product) %></th>
+
         </tr>
         <% end %>
       </table>
