@@ -12,6 +12,27 @@
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="/">AuctionApp</a>
+
+        <div style="margin-left:auto">
+
+          <% if signed_in? %>
+          <%= link_to "Log Out" '<i class="fas fa-user" ></i>'.html_safe, destroy_user_session_path, style: "color: #fff", method: :delete %>
+          <% else %>
+          <%= link_to "Log in" '<i class="fas fa-user"></i>'.html_safe, new_user_session_path, style: "color: #fff" %>
+          <%end%>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+
   <% if flash[:notice] %>
   <div class="alert alert-info"><%= flash[:notice] %></div>
   <% end %>
