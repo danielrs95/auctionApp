@@ -15,3 +15,10 @@ Product.create(
   startingDate: DateTime.strptime("03/23/2021 17:00", "%m/%d/%Y %H:%M"),
   endingDate: DateTime.strptime("03/23/2021 20:00", "%m/%d/%Y %H:%M")
   )
+
+User.create(
+  name: "Admin",
+  email:"admin@example.com",
+  password: "123456",
+  admin: true
+)

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # get '/products' => 'products#index'
   # get '/products/new' => 'products#new', as: 'new_product'
   # post '/products' => 'products#create'
