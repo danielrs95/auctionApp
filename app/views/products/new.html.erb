@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <h1>Create product</h1>
+      <%= form_with model: @product do |f| %>
+      <div class="form-group my-2">
+        <%= f.label :name, "Product name"%>
+        <%= f.text_field :name, class: "form-control input-lg", placeholder: "Add product name" %>
+      </div>
+      <div class="form-group  my-2">
+        <%= f.label :description, "Product description"%>
+        <%= f.text_area :description, class: "form-control input-lg",
+        placeholder: "Add product description" %>
+      </div>
+      <div class="form-group  my-2">
+        <%= f.label :image, "Product image"%>
+        <%= f.text_field :image, class: "form-control input-lg", placeholder:
+        "Image" %>
+      </div>
+
+      <div class="form-group  my-2">
+        <%= f.label :price, "Product price"%>
+        <%= f.number_field :price, step: :any, class: "form-control input-lg",
+        placeholder:"Product price"%>
+      </div>
+
+      <div class="form-group  my-2">
+        <%= f.label :auctionDate, "Product auction date"%>
+        <%= f.datetime_local_field :auctionDate, class: "form-control input-lg",
+        placeholder:"Product auction date"%>
+      </div>
+
+      <div class="form-group  my-2">
+        <%= f.label :startingDate, "Product auction starting date"%>
+        <%= f.datetime_local_field :startingDate, class: "form-control input-lg"%>
+      </div>
+
+      <div class="form-group  my-2">
+        <%= f.label :endingDate, "Product auction ending date"%>
+        <%= f.datetime_local_field :endingDate, class: "form-control input-lg"%>
+      </div>
+
+      <div>
+        <%= f.submit "Submit product", class: "btn btn-primary btn-lg
+        btn-block" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
