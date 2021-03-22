@@ -26,6 +26,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :products
+  has_many :biddings
 
   validates :name, presence: true
   validates :phone, presence: true

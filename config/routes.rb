@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   # delete '/products/:id' => 'products#delete'
 
   # Todas las rutas anteriores, se pueden reemplazar exactamente con la siguiente linea
-  resources :products
+  resources :products do
+    resources :biddings, only: [:create]
+  end
 
   # Landing de la app
   root 'products#index'

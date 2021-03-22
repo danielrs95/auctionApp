@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_222915) do
+ActiveRecord::Schema.define(version: 2021_03_22_154940) do
+
+  create_table "biddings", force: :cascade do |t|
+    t.decimal "price"
+    t.integer "product_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_biddings_on_product_id"
+    t.index ["user_id"], name: "index_biddings_on_user_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "name"
@@ -41,5 +51,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_222915) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "biddings", "products"
+  add_foreign_key "biddings", "users"
   add_foreign_key "products", "users"
 end
