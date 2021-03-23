@@ -8,7 +8,7 @@
       <div class="list-group list-group-flush">
         <h2 class="list-group-item"><%= @product.name %></h2>
         <div class="list-group-item"><%= @product.description %></div>
-        <div class="list-group-item">Price: $<%= @product.price %></div>
+        <div class="list-group-item">Starting Price: $<%= @product.price %></div>
         <div class="list-group-item">Auction Date: <%= @product.auctionDate %></div>
         <div class="list-group-item">Auction Starting Date: <%= @product.startingDate %></div>
         <div class="list-group-item">Auction Ending Date: <%= @product.endingDate %></div>
@@ -17,6 +17,9 @@
 
     <div class="col-md-6">
       <h2> Biddings </h2>
+
+
+
       <% @product.biddings.each do |bidding| %>
       <div class="list-group mb-1">
         <div href="#" class="list-group-item list-group-item-action " aria-current="true">
@@ -29,13 +32,19 @@
       <% end %>
 
       <% if signed_in? %>
-      <%= form_for [@product, @product.biddings.build] do |f| %>
+      <%= form_with(model: [@product, @product.biddings.build], local:true) do |form| %>
+      <%
+=begin%>
+      <%= display_errors_for(form.object) %>
+      <%
+=end%>
+
       <div class="form-group">
-        <%= f.number_field :price, class: "form-control", placeholder: "Add your bidding" %>
+        <%= form.number_field :price, class: "form-control", placeholder: "Add your bidding" %>
       </div>
 
       <div class="actions text-right mt-1">
-        <%= f.submit "Comentar", class: "btn btn-primary" %>
+        <%= form.submit "Comentar", class: "btn btn-primary" %>
       </div>
       <% end %>
       <%else%>

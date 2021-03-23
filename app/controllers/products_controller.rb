@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all
+    @active_products = Product.where('endingDate < ?', DateTime.now)
+    @inactive_products = Product.where('endingDate > ?', DateTime.now)
+
+    # @products = Product.all
   end
 
   def new
@@ -34,7 +37,7 @@ class ProductsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     # Sin @ porque no usaremos la variable en la vista
     product = Product.find(params[:id])
     product.destroy

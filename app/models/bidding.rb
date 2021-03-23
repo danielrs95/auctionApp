@@ -22,4 +22,14 @@
 class Bidding < ApplicationRecord
   belongs_to :product
   belongs_to :user
+
+  validates :price, presence: true
+
+  validate :amount_not_more_than_deposit_amount
+
+  def amount_not_more_than_deposit_amount
+    if price < product.price
+      errors.add :price, "cannot be greater than the deposit amount"
+    end
+  end
 end
